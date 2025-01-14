@@ -1,0 +1,39 @@
+@import "./_variables.scss";
+@import "./_mixins";
+@import "./_base";
+@import "./components/_header";
+@import "./components/_footer";
+@import "./pages/_home";
+
+body {
+  font-family: $font-family;
+  background-color: $secondary-bg-color;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+header {
+  background-color: $primary-bg-color;
+  padding: 1rem;
+  color: $text-color;
+
+  nav {
+    ul {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-content: space-evenly;
+
+      li {
+        padding: 0.5rem;
+
+        a {
+          color: $text-color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

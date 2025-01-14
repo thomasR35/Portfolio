@@ -1,0 +1,53 @@
+@import "../variables";
+@import "../mixins";
+
+.home {
+  padding: 2rem;
+
+  .main-home {
+    text-align: center;
+    margin: 3rem 0;
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      .btn {
+        padding: 0.8rem 2rem;
+        background-color: $primary-bg-color;
+        color: $text-color;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary-bg-color, 10%);
+        }
+      }
+    }
+  }
+
+  @include respond-to("mobile") {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+}

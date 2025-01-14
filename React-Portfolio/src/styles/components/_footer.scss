@@ -1,0 +1,11 @@
+@import "../variables";
+
+footer {
+  background-color: $primary-bg-color;
+  color: $text-color;
+  text-align: center;
+
+  p {
+    font-size: 0.9rem;
+  }
+}

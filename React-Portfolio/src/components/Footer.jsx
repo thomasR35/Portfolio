@@ -6,8 +6,7 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <p>
-          &copy; {new Date().getFullYear()} - Votre Nom ou Entreprise. Tous
-          droits réservés.
+          &copy; {new Date().getFullYear()} - Thomas Riou. Tous droits réservés.
         </p>
         <ul className="footer-links">
           <li>
@@ -16,7 +15,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Twitter
+              <i className="fab fa-twitter"></i> Twitter
             </a>
           </li>
           <li>
@@ -25,7 +24,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              <i className="fab fa-linkedin"></i> LinkedIn
             </a>
           </li>
           <li>
@@ -34,7 +33,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+              <i className="fab fa-github"></i> GitHub
             </a>
           </li>
         </ul>

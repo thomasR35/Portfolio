@@ -11,15 +11,6 @@ function Footer() {
         <ul className="footer-links">
           <li>
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-twitter"></i> Twitter
-            </a>
-          </li>
-          <li>
-            <a
               href="https://www.linkedin.com/in/thomas-riou-b93939341/"
               target="_blank"
               rel="noopener noreferrer"

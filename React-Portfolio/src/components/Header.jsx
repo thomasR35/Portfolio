@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/components/_header.scss";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,33 +11,35 @@ function Header() {
 
   return (
     <header>
-      <div className="logo">
-        <img src="/src/assets/black_tr.png" alt="Logo" />
+      <div className="container">
+        <div className="logo">
+          <img src="/src/assets/black_tr.png" alt="Logo" />
+        </div>
+        <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
+          <ul>
+            <li>
+              <Link to="/">//Home</Link>
+            </li>
+            <li>
+              <Link to="/about">//About</Link>
+            </li>
+            <li>
+              <Link to="/projects">//Projets</Link>
+            </li>
+            <li>
+              <Link to="/contact">//Contact</Link>
+            </li>
+          </ul>
+        </nav>
+        <button
+          className={`burger ${isMenuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <span className="line"></span>
+          <span className="line"></span>
+          <span className="line"></span>
+        </button>
       </div>
-      <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
-        <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-      <button
-        className={`burger ${isMenuOpen ? "active" : ""}`}
-        onClick={toggleMenu}
-      >
-        <span className="line"></span>
-        <span className="line"></span>
-        <span className="line"></span>
-      </button>
     </header>
   );
 }

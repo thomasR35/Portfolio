@@ -5,7 +5,11 @@ function Projects() {
   const projects = [
     {
       title: "Shortly",
-      description: "URL Shortener | Front End Mentor ",
+      description1: "URL Shortener | Front End Mentor ",
+      description2:
+        "Ce projet est un challenge de Front End Mentor. Il s'agit de créer une application de raccourcissement d'URL.",
+      description3:
+        "Le challenge consiste à intégrer la maquette fournie en respectant le design et les fonctionnalités demandées.",
       imageUrl: "/images/shortly2.jpg",
     },
     {
@@ -36,7 +40,9 @@ function Projects() {
             <div className="vertical-separator"></div>
             <div className="project-card">
               <h2>{project.title}</h2>
-              <p>{project.description}</p>
+              <p>{project.description1}</p>
+              <p>{project.description2}</p>
+              <p>{project.description3}</p>
             </div>
           </div>
         </div>

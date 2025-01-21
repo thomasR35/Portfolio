@@ -32,6 +32,7 @@
 
 .project-image {
   flex: 1;
+  width: 200px;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
@@ -54,12 +55,13 @@
   h2 {
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    color: #333;
+    color: #1a1450;
+    text-decoration: underline;
   }
 
   p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #555;
+    color: #000;
   }
 }

@@ -13,7 +13,9 @@ function Header() {
     <header>
       <div className="container">
         <div className="logo">
-          <img src="/src/assets/black_tr.png" alt="Logo" />
+          <Link to="/">
+            <img src="/src/assets/black_tr.png" alt="Logo" />
+          </Link>
         </div>
         <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
           <ul>

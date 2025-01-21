@@ -4,9 +4,9 @@ import "../styles/pages/_projects.scss";
 function Projects() {
   const projects = [
     {
-      title: "Projet 1",
-      description: "Description du projet 1",
-      imageUrl: "https://via.placeholder.com/300x200",
+      title: "Shortly",
+      description: "URL Shortener | Front End Mentor ",
+      imageUrl: "/images/shortly2.jpg",
     },
     {
       title: "Projet 2",

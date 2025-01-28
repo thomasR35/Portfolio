@@ -5,27 +5,38 @@ function Projects() {
   const projects = [
     {
       title: "Shortly",
-      description1: "URL Shortener | Front End Mentor ",
+      description1:
+        "Ce Projet est un challenge de Front End Mentor réalisé en une demi journée.",
       description2:
-        "Ce projet est un challenge de Front End Mentor. Il s'agit de créer une application de raccourcissement d'URL.",
+        "Le but est d’intégrer l’API Clean URI pour créer des URL raccourcies et de les afficher comme dans les maquettes",
       description3:
-        "Le challenge consiste à intégrer la maquette fournie en respectant le design et les fonctionnalités demandées.",
-      imageUrl: "/images/shortly2.jpg",
+        "Le site n'est pas responsive, mais il fonctionne correctement sur toutes les tailles d'écran.",
+      imageUrl: "/images/shortly.png",
     },
     {
-      title: "Projet 2",
-      description: "Description du projet 2",
-      imageUrl: "https://via.placeholder.com/300x200",
+      title: "La ferme des possible",
+      description1: "Projet de groupe de 4 personnes pour la 3W Academy.",
+      description2:
+        "Le but est de mettre en pratique les connaissances acquises durant la formation sur un site multi page.",
+      description3: "Quelques fonctionnalités en javascript, css et html.",
+      imageUrl: "/images/ferme.png",
     },
     {
-      title: "Projet 3",
-      description: "Description du projet 3",
-      imageUrl: "https://via.placeholder.com/300x200",
+      title: "Secured Blog",
+      description1: "Projet de blog sécurisé fourni par la 3W Academy.",
+      description2:
+        "Site exemple en PHP avec intégration en Bootstrap, base de données en MySQL.",
+      description3:
+        "Sur une architecture MVC, on met en place les bases de la sécurité d'un site web. ( XSS / CSRF )",
+      imageUrl: "/images/secured.png",
     },
   ];
 
   return (
     <main className="projects-container">
+      <h1 className="projects-h1">
+        Tous ces projets sont consultables sur GitHub
+      </h1>
       {projects.map((project, index) => (
         <div
           key={index}

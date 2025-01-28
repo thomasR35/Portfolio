@@ -24,9 +24,9 @@ function About() {
             <h3>Compétences</h3>
             <ul>
               <li>HTML, CSS, JavaScript</li>
-              <li>React, Node.js, Express</li>
+              <li>React, Node.js</li>
               <li>PHP, MySQL</li>
-              <li>Git, GitHub</li>
+              <li>GitHub</li>
             </ul>
           </div>
         </div>

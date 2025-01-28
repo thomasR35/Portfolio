@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins";
 
 .projects-container {
   display: flex;
@@ -7,6 +8,11 @@
   margin: 2rem auto;
   width: 90%;
   max-width: 80%;
+
+  @include respond-to("tablet") {
+    width: 95%;
+    max-width: 95%;
+  }
 }
 
 .project-row {
@@ -22,19 +28,37 @@
   &.right .project-content {
     flex-direction: row-reverse;
   }
+
+  @include respond-to("tablet") {
+    &.left .project-content,
+    &.right .project-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
+
 .projects-h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: $title-color;
   text-align: center;
+
+  @include respond-to("mobile") {
+    font-size: 1.6rem;
+  }
 }
+
 .project-content {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   gap: 1.5rem;
+
+  @include respond-to("mobile") {
+    gap: 1rem;
+  }
 }
 
 .project-image {
@@ -49,12 +73,26 @@
   &:hover {
     transform: scale(1.2);
   }
+
+  @include respond-to("tablet") {
+    width: 50%;
+    max-width: 300px;
+  }
+
+  @include respond-to("mobile") {
+    width: 80%;
+    max-width: 300px;
+  }
 }
 
 .vertical-separator {
   width: 2px;
   height: 100%;
   background-color: #000000;
+
+  @include respond-to("mobile") {
+    display: none;
+  }
 }
 
 .project-card {
@@ -69,11 +107,20 @@
     font-size: 1.5rem;
     color: $title-color;
     text-decoration: underline;
+
+    @include respond-to("mobile") {
+      font-size: 1.3rem;
+    }
   }
 
   p {
     font-size: 1rem;
     line-height: 1.5;
     color: #000;
+    margin-bottom: 0.5rem;
+
+    @include respond-to("mobile") {
+      font-size: 0.9rem;
+    }
   }
 }

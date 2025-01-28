@@ -1,19 +1,30 @@
+@import "../variables";
+@import "../mixins";
+
 .about-container {
   padding: 40px;
   background-color: #f9f9f9;
   color: #333;
-}
 
-.about-container h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+
+    @include respond-to("mobile") {
+      font-size: 1.6rem;
+    }
+  }
 }
 
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+
+  @include respond-to("tablet") {
+    grid-template-columns: 1fr;
+  }
 }
 
 .about-text,
@@ -22,34 +33,60 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+
+    @include respond-to("mobile") {
+      font-size: 1.3rem;
+    }
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+    line-height: 1.6;
+
+    @include respond-to("mobile") {
+      font-size: 0.95rem;
+    }
+  }
 }
 
-.about-text h3,
-.about-skills h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.about-skills {
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4caf50;
+    }
+  }
 }
 
-.about-text p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
+.pdf-container {
+  width: 100%;
+  margin: 20px auto;
 
-.about-skills ul {
-  list-style-type: none;
-  padding-left: 0;
-}
+  embed {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    display: block;
+    margin: 0 auto;
 
-.about-skills li {
-  font-size: 1rem;
-  margin-bottom: 8px;
-  padding-left: 20px;
-  position: relative;
-}
-
-.about-skills li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #4caf50;
+    @include respond-to("mobile") {
+      height: 400px;
+    }
+  }
 }

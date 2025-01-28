@@ -1,3 +1,27 @@
-# React + Vite
+# Portfolio en React
 
-Tentative de mise en palce d'un Portfolio en React avec Vite.
+Technologies utilisées:
+
+scss
+
+css
+
+js
+
+html
+
+react
+
+react router
+
+react links
+
+vite
+
+eslint
+
+git
+
+npm
+
+github

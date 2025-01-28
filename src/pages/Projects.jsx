@@ -11,7 +11,7 @@ function Projects() {
         "Le but est d’intégrer l’API Clean URI pour créer des URL raccourcies et de les afficher comme dans les maquettes",
       description3:
         "Le site n'est pas responsive, mais il fonctionne correctement sur toutes les tailles d'écran.",
-      imageUrl: "/images/shortly.png",
+      imageUrl: "/Portfolio/images/shortly.png",
     },
     {
       title: "La ferme des possibles",
@@ -19,7 +19,7 @@ function Projects() {
       description2:
         "Le but est de mettre en pratique les connaissances acquises durant la formation sur un site multi page.",
       description3: "Quelques fonctionnalités en javascript, css et html.",
-      imageUrl: "/images/ferme.png",
+      imageUrl: "/Portfolio/images/ferme.png",
     },
     {
       title: "Secured Blog",
@@ -29,7 +29,7 @@ function Projects() {
         "Site exemple en PHP avec intégration en Bootstrap, base de données en MySQL.",
       description3:
         "Sur une architecture MVC, mise en place des bases de la sécurité d'un site web. ( XSS / CSRF )",
-      imageUrl: "/images/secured.png",
+      imageUrl: "/Portfolio/images/secured.png",
     },
   ];
 

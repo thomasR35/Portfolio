@@ -32,7 +32,7 @@ function About() {
         </div>
       </section>
       <section className="pdf-container">
-        <embed src="/pdf/CV_TR.pdf" width="100%" height="600px" />
+        <embed src="/Portfolio/pdf/CV_TR.pdf" width="100%" height="600px" />
       </section>
     </div>
   );

@@ -14,7 +14,7 @@ function Projects() {
       imageUrl: "/images/shortly.png",
     },
     {
-      title: "La ferme des possible",
+      title: "La ferme des possibles",
       description1: "Projet de groupe de 4 personnes pour la 3W Academy.",
       description2:
         "Le but est de mettre en pratique les connaissances acquises durant la formation sur un site multi page.",
@@ -23,11 +23,12 @@ function Projects() {
     },
     {
       title: "Secured Blog",
-      description1: "Projet de blog sécurisé fourni par la 3W Academy.",
+      description1:
+        "Projet de blog sécurisé fourni par Mari Doucet @Kornog.bzh .",
       description2:
         "Site exemple en PHP avec intégration en Bootstrap, base de données en MySQL.",
       description3:
-        "Sur une architecture MVC, on met en place les bases de la sécurité d'un site web. ( XSS / CSRF )",
+        "Sur une architecture MVC, mise en place des bases de la sécurité d'un site web. ( XSS / CSRF )",
       imageUrl: "/images/secured.png",
     },
   ];

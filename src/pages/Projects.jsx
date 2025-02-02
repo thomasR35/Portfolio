@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/pages/_projects.scss";
 
 function Projects() {
@@ -6,30 +7,32 @@ function Projects() {
     {
       title: "Shortly",
       description1:
-        "Ce Projet est un challenge de Front End Mentor réalisé en une demi journée.",
+        "Ce projet est un challenge de Front End Mentor réalisé en une demi journée.",
       description2:
-        "Le but est d’intégrer l’API Clean URI pour créer des URL raccourcies et de les afficher comme dans les maquettes",
+        "Le but est d’intégrer l’API Clean URI pour créer des URL raccourcies et de les afficher comme dans les maquettes.",
       description3:
-        "Le site n'est pas responsive, mais il fonctionne correctement sur toutes les tailles d'écran.",
+        "Le site n'est pas responsive, mais il fonctionne correctement sur toutes les tailles d'écran.",
       imageUrl: "/Portfolio/images/shortly.png",
+      projectId: "shortly",
     },
     {
       title: "La ferme des possibles",
       description1: "Projet de groupe de 4 personnes pour la 3W Academy.",
       description2:
         "Le but est de mettre en pratique les connaissances acquises durant la formation sur un site multi page.",
-      description3: "Quelques fonctionnalités en javascript, css et html.",
+      description3: "Quelques fonctionnalités en JavaScript, CSS et HTML.",
       imageUrl: "/Portfolio/images/ferme.png",
+      projectId: "ferme",
     },
     {
-      title: "Secured Blog",
-      description1:
-        "Projet de blog sécurisé fourni par Mari Doucet @Kornog.bzh .",
+      title: "League",
+      description1: "Projet de league fictive par Mari Doucet @Kornog.bzh.",
       description2:
-        "Site exemple en PHP avec intégration en Bootstrap, base de données en MySQL.",
+        "Site exemple en PHP avec intégration en Sass, base de données en MySQL.",
       description3:
-        "Sur une architecture MVC, mise en place des bases de la sécurité d'un site web. ( XSS / CSRF )",
-      imageUrl: "/Portfolio/images/secured.png",
+        "Sur une architecture MVC, mise en place des routes et hydratation par dates.",
+      imageUrl: "/Portfolio/images/league.png",
+      projectId: "league",
     },
   ];
 
@@ -44,14 +47,18 @@ function Projects() {
           className={`project-row ${index % 2 === 0 ? "left" : "right"}`}
         >
           <div className="project-content">
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="project-image"
-            />
+            <Link to={`/projects/${project.projectId}`}>
+              <img
+                src={project.imageUrl}
+                alt={project.title}
+                className="project-image"
+              />
+            </Link>
             <div className="vertical-separator"></div>
             <div className="project-card">
-              <h2>{project.title}</h2>
+              <Link to={`/projects/${project.projectId}`}>
+                <h2>{project.title}</h2>
+              </Link>
               <p>{project.description1}</p>
               <p>{project.description2}</p>
               <p>{project.description3}</p>

@@ -17,7 +17,7 @@
 
 .project-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1.5rem;
 
@@ -34,6 +34,7 @@
     &.right .project-content {
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -52,7 +53,7 @@
 .project-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   gap: 1.5rem;
 
@@ -63,7 +64,7 @@
 
 .project-image {
   flex: 1;
-  width: 200px;
+  width: 600px;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
@@ -77,11 +78,15 @@
   @include respond-to("tablet") {
     width: 50%;
     max-width: 300px;
+    display: block;
+    margin: 0 auto;
   }
 
   @include respond-to("mobile") {
     width: 80%;
     max-width: 300px;
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -97,6 +102,7 @@
 
 .project-card {
   flex: 1;
+  max-width: max-content;
   padding: 1rem;
   background-color: #f9f9f9;
   border-radius: 8px;

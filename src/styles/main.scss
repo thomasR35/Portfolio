@@ -4,6 +4,10 @@
 @import "./components/_header";
 @import "./components/_footer";
 @import "./pages/_home";
+@import "./pages/_about";
+@import "./pages/_projects";
+@import "./pages/_contact";
+@import "./pages/_projectDetails";
 
 body {
   font-family: $font-family;

@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/pages/_home.scss";
 import { Link } from "react-router-dom";
 

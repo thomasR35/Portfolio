@@ -3,21 +3,23 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="home">
+    <main className="home">
       <section className="main-home">
         <article className="intro">
-          <h1>Bienvenue sur mon portfolio</h1>
+          <h1>Bienvenue chez West Dev</h1>
           <p>
-            Actuellement en formation à la 3W Academy, je suis en recherche de
-            stage.
+            Après avoir terminé une formation de développeur web à la 3W
+            Academy, je lance mon activité de freelance. <br /> Vous trouverez
+            sur ce site mes projets actuels et passés, ainsi que des
+            informations me concernant.
           </p>
           <p>
-            Vous trouverez sur ce site mes projets personnels et ceux accomplis
-            durant ma formation.
-          </p>
-          <p>
-            Mon projet le plus abouti est le portfolio que vous consultez
-            actuellement.
+            Mon acitivité principale est le développement front-end, mais je
+            suis également compétent en back-end et en gestion de bases de
+            données. <br />
+            Je me forme sur le CRM Zoho et plus particulièrement Zoho Creator
+            pour développer des applications personnalisées pour les
+            entreprises.
           </p>
           <p>
             N'hésitez pas à me contacter pour toute information complémentaire.
@@ -32,7 +34,7 @@ function Home() {
           </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

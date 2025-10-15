@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import blackTr from "../assets/black_tr.png";
+import WestDev from "../assets/WestDev.jpg";
 import "../styles/components/_header.scss";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ function Header() {
       <div className="container">
         <div className="logo">
           <Link to="/">
-            <img src={blackTr} alt="Logo" />
+            <img src={WestDev} alt="Logo" />
           </Link>
         </div>
         <nav className={`nav ${isMenuOpen ? "open" : ""}`}>

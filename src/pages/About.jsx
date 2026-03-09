@@ -4,7 +4,7 @@ function About() {
   return (
     <div>
       <section className="about-container">
-        <h2>À propos de moi</h2>
+        <h2>À propos</h2>
         <div className="about-content">
           <div className="about-text">
             <h3>Qui suis-je ?</h3>
@@ -29,9 +29,6 @@ function About() {
             </ul>
           </div>
         </div>
-      </section>
-      <section className="pdf-container">
-        <embed src="/Portfolio/pdf/CV_TR.pdf" width="100%" height="600px" />
       </section>
     </div>
   );

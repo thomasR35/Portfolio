@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WestDev from "../assets/WestDev.jpg";
+import WestDev from "../assets/westdev_logo.png";
 import "../styles/components/_header.scss";
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,7 @@ function Header() {
               <Link to="/">//Home</Link>
             </li>
             <li>
-              <Link to="/about">//About</Link>
+              <Link to="/about">//À Propos</Link>
             </li>
             <li>
               <Link to="/projects">//Projets</Link>

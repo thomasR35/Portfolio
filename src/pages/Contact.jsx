@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import "../styles/pages/_contact.scss";
 
 const SERVICE_ID = "service_xjoxn9k";
-const TEMPLATE_ID = "template_lxht6hg";
+const TEMPLATE_ID = "template_rif1ruk";
 const PUBLIC_KEY = "u9wMtyPUaEi4jokXQ";
 
 const isValidEmail = (email) => {

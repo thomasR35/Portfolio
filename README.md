@@ -1,27 +1,92 @@
-# Portfolio en React
+# 🌐 WestDev — Portfolio
 
-Technologies utilisées:
+> Portfolio personnel de **Thomas Riou**, développeur web frontend basé en Bretagne.
+> Conçu et développé de A à Z avec React et Vite, déployé sur [westdev.fr](https://westdev.fr).
 
-scss
+---
 
-css
+## ✨ Aperçu
 
-js
+Site portfolio single-page avec animations au scroll, design en blocs cohérents sur toutes les pages, formulaire de contact fonctionnel et déploiement continu via Vercel.
 
-html
+---
 
-react
+## 🛠️ Stack technique
 
-react router
+| Catégorie       | Technologies                        |
+| --------------- | ----------------------------------- |
+| **Frontend**    | React 18, React Router v7, JSX      |
+| **Style**       | SCSS (architecture 7-1), CSS3       |
+| **Build**       | Vite 6, ESLint                      |
+| **Contact**     | EmailJS                             |
+| **Versioning**  | Git, GitHub                         |
+| **Déploiement** | Vercel, nom de domaine personnalisé |
 
-react links
+---
 
-vite
+## 📁 Structure du projet
 
-eslint
+```
+src/
+├── assets/          # Logo et images statiques
+├── components/      # Header, Footer, ScrollBlocks
+├── pages/           # Home, About, Projects, Contact, ProjectDetails
+└── styles/
+    ├── components/  # _header.scss, _footer.scss, _scrollBlocks.scss
+    ├── pages/       # _home.scss, _about.scss, _projects.scss, _contact.scss
+    ├── _variables.scss
+    ├── _mixins.scss
+    ├── _base.scss
+    └── main.scss
+```
 
-git
+---
 
-npm
+## 🚀 Lancer le projet en local
 
-github
+```bash
+# Cloner le dépôt
+git clone https://github.com/thomasR35/Portfolio.git
+cd Portfolio
+
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm run dev
+```
+
+Le site sera accessible sur `http://localhost:5173`.
+
+---
+
+## 📦 Scripts disponibles
+
+```bash
+npm run dev        # Serveur de développement
+npm run build      # Build de production
+npm run preview    # Prévisualiser le build
+npm run lint       # Linter ESLint
+```
+
+---
+
+## 🌍 Déploiement
+
+Le projet est déployé automatiquement sur **Vercel** à chaque push sur la branche `main`.
+
+- **Production** → [westdev.fr](https://westdev.fr)
+- **Preprod** → branche `preprod` déployée sur URL Vercel preview
+
+---
+
+## 📬 Contact
+
+Thomas Riou — [thomasriou.35@gmail.com](mailto:thomasriou.35@gmail.com)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Thomas%20Riou-0077B5?style=flat&logo=linkedin)](https://www.linkedin.com/in/thomas-riou-3a1b3b1b3/)
+[![GitHub](https://img.shields.io/badge/GitHub-thomasR35-181717?style=flat&logo=github)](https://github.com/thomasR35)
+
+---
+
+Fait avec ☕ en Bretagne\_

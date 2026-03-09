@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,6 +20,13 @@
     <meta property="og:url" content="https://thomasr35.github.io/Portfolio/" />
     <meta property="og:type" content="website" />
     <title>Portfolio</title>
+    <script>
+      const redirect = sessionStorage.getItem("redirect");
+      if (redirect) {
+        sessionStorage.removeItem("redirect");
+        window.history.replaceState(null, null, redirect);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

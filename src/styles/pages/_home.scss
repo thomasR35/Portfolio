@@ -7,55 +7,6 @@
   flex-direction: column;
   font-family: $font-family;
 
-  .main-home {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    h1 {
-      font-size: 2.5rem;
-      color: #1e3851;
-      margin-bottom: 2rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #1e3851;
-      text-align: left;
-      margin-bottom: 1.5rem;
-    }
-
-    .intro {
-      margin: 0 auto;
-      margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-
-      .btn {
-        padding: 0.8rem 2rem;
-        background-color: $primary-bg-color;
-        color: $text-color;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: $text-hover;
-          color: $primary-bg-color;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-
   @include respond-to("mobile") {
     .hero h1 {
       font-size: 2rem;

@@ -2,17 +2,15 @@
 @import "../mixins";
 
 // ============================================================
-// _contact.scss — design cohérent avec les autres pages
+// _contact.scss
 // ============================================================
 
-// --- WRAPPER -----------------------------------------------
 .ct-wrapper {
   min-height: 100vh;
   background: $sb-bg;
   padding: 6rem 1.5rem;
 }
 
-// --- HERO --------------------------------------------------
 .ct-hero {
   text-align: center;
   margin-bottom: 5rem;
@@ -36,12 +34,11 @@
     line-height: 1.1;
 
     &--muted {
-      color: #1e3851;
+      color: $sb-text-muted;
     }
   }
 }
 
-// --- LISTE -------------------------------------------------
 .ct-blocks {
   display: flex;
   flex-direction: column;
@@ -50,7 +47,6 @@
   margin: 0 auto;
 }
 
-// --- BLOC --------------------------------------------------
 .ct-block {
   display: flex;
   align-items: stretch;
@@ -80,7 +76,6 @@
 
   &--right {
     flex-direction: row-reverse;
-
     .ct-block__icon-side {
       border-left: 2px solid
         color-mix(in srgb, var(--ct-accent) 25%, transparent);
@@ -88,7 +83,6 @@
   }
 }
 
-// --- COULEURS D'ACCENT -------------------------------------
 .accent-green {
   --ct-accent: #{$sb-accent-green};
 }
@@ -110,7 +104,6 @@
       color-mix(in srgb, var(--ct-accent) 4%, transparent)
     );
   }
-
   .ct-block__divider {
     background: var(--ct-accent);
   }
@@ -123,7 +116,6 @@
   }
 }
 
-// --- CÔTÉ ICÔNE (25%) --------------------------------------
 .ct-block__icon-side {
   width: $sb-icon-side-width;
   min-width: $sb-icon-side-min-width;
@@ -140,13 +132,11 @@
   font-size: 3rem;
   line-height: 1;
 }
-
 .ct-block__divider {
   width: 36px;
   height: 2px;
   border-radius: 2px;
 }
-
 .ct-block__tag {
   font-family: $pj-font-mono;
   font-size: 0.6rem;
@@ -156,7 +146,6 @@
   text-align: center;
 }
 
-// --- CÔTÉ TEXTE (75%) --------------------------------------
 .ct-block__text-side {
   padding: 2.25rem 2.5rem;
   display: flex;
@@ -184,7 +173,7 @@
   display: inline-block;
 }
 
-// --- RÉSEAUX SOCIAUX ---------------------------------------
+// --- RÉSEAUX -----------------------------------------------
 .ct-social-list {
   list-style: none;
   padding: 0;
@@ -204,13 +193,8 @@
   text-decoration: none;
   transition: color 0.2s ease;
 
-  .ct-block__dot {
-    transition: box-shadow 0.2s ease;
-  }
-
   &:hover {
     color: var(--ct-accent);
-
     .ct-block__dot {
       box-shadow: 0 0 12px var(--ct-accent);
     }
@@ -257,6 +241,11 @@
     border-color: var(--ct-accent);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--ct-accent) 15%, transparent);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .ct-form__textarea {
@@ -264,30 +253,103 @@
   resize: vertical;
 }
 
+// --- BOUTON ENVOI + ÉTATS ----------------------------------
 .ct-form__submit {
   align-self: flex-start;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: transparent;
-  border: 1px solid color-mix(in srgb, var(--ct-accent) 40%, transparent);
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
   font-family: $pj-font-mono;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: var(--ct-accent);
   cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--ct-accent) 40%, transparent);
+  background: transparent;
+  color: var(--ct-accent);
   transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
     transform 0.2s ease;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: color-mix(in srgb, var(--ct-accent) 10%, transparent);
     border-color: var(--ct-accent);
     transform: translateX(4px);
   }
+
+  // Envoi en cours
+  &--sending {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  // Succès — fond vert clair, texte foncé
+  &--success {
+    background: #c8e6c9;
+    border-color: #4caf50;
+    color: #1b5e20;
+    cursor: default;
+    transform: none;
+  }
+
+  // Erreur
+  &--error {
+    border-color: $sb-accent-red;
+    color: $sb-accent-red;
+  }
+}
+
+// --- SPINNER -----------------------------------------------
+.ct-spinner {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: ct-spin 0.7s linear infinite;
+}
+
+@keyframes ct-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// --- CHECKMARK ---------------------------------------------
+.ct-checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: #4caf50;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  animation: ct-pop 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes ct-pop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// --- MESSAGE D'ERREUR --------------------------------------
+.ct-form__error {
+  font-family: $pj-font-mono;
+  font-size: 0.8rem;
+  color: $sb-accent-red;
+  margin: 0;
 }
 
 // --- RESPONSIVE --------------------------------------------
@@ -316,4 +378,17 @@
     align-self: stretch;
     justify-content: center;
   }
+}
+
+// --- VALIDATION EMAIL --------------------------------------
+.ct-form__input--error {
+  border-color: #e03131;
+  box-shadow: 0 0 0 3px rgba(224, 49, 49, 0.15);
+}
+
+.ct-form__field-error {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  color: #e03131;
+  margin-top: 0.2rem;
 }

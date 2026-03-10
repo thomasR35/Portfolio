@@ -1,32 +1,79 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- =====================================================
+         META DE BASE
+         ===================================================== -->
+    <title>WestDev — Thomas Riou, Développeur Web</title>
+    <meta
+      name="description"
+      content="Portfolio de Thomas Riou, développeur web junior basé en Bretagne. Spécialisé React, Node.js, PHP et MySQL. Disponible pour missions freelance."
+    />
+    <meta name="author" content="Thomas Riou" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://westdev.fr/" />
+
+    <!-- =====================================================
+         OPEN GRAPH (Facebook, LinkedIn, Discord…)
+         ===================================================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://westdev.fr/" />
+    <meta property="og:title" content="WestDev — Thomas Riou, Développeur Web" />
+    <meta
+      property="og:description"
+      content="Portfolio de Thomas Riou, développeur web junior basé en Bretagne. Spécialisé React, Node.js, PHP et MySQL. Disponible pour missions freelance."
+    />
+    <meta property="og:image" content="https://westdev.fr/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="WestDev" />
+
+    <!-- =====================================================
+         TWITTER CARD
+         ===================================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WestDev — Thomas Riou, Développeur Web" />
+    <meta
+      name="twitter:description"
+      content="Portfolio de Thomas Riou, développeur web junior basé en Bretagne. Disponible pour missions freelance."
+    />
+    <meta name="twitter:image" content="https://westdev.fr/og-image.png" />
+
+    <!-- =====================================================
+         JSON-LD — RICH RESULT GOOGLE
+         ===================================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Thomas Riou",
+      "url": "https://westdev.fr",
+      "jobTitle": "Développeur Web",
+      "description": "Développeur web junior spécialisé React, Node.js, PHP et MySQL. Basé en Bretagne, disponible pour missions freelance.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Bretagne",
+        "addressCountry": "FR"
+      },
+      "sameAs": [
+        "https://github.com/thomasR35",
+        "https://www.linkedin.com/in/thomas-riou-3a1b3b1b3/"
+      ]
+    }
+    </script>
+
+    <!-- =====================================================
+         ICÔNES & POLICES
+         ===================================================== -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Portfolio de Thomas R." />
-    <meta
-      property="og:description"
-      content="Découvrez mes projets, mes compétences et mon parcours. En stage chez  https://kornog.bzh// du 24 mars au 11 juin 2025 !"
-    />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/thomasR35/Portfolio/main/src/assets/white_tr.png
-      "
-    />
-    <meta property="og:url" content="https://thomasr35.github.io/Portfolio/" />
-    <meta property="og:type" content="website" />
-    <title>WESTDEV</title>
-    <script>
-      const redirect = sessionStorage.getItem("redirect");
-      if (redirect) {
-        sessionStorage.removeItem("redirect");
-        window.history.replaceState(null, null, redirect);
-      }
-    </script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
     <div id="root"></div>

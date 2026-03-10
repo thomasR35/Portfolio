@@ -21,16 +21,24 @@ function Header() {
         <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
           <ul>
             <li>
-              <Link to="/">//Home</Link>
+              <Link to="/" onClick={toggleMenu}>
+                //Home
+              </Link>
             </li>
             <li>
-              <Link to="/about">//À Propos</Link>
+              <Link to="/about" onClick={toggleMenu}>
+                //À Propos
+              </Link>
             </li>
             <li>
-              <Link to="/projects">//Projets</Link>
+              <Link to="/projects" onClick={toggleMenu}>
+                //Projets
+              </Link>
             </li>
             <li>
-              <Link to="/contact">//Contact</Link>
+              <Link to="/contact" onClick={toggleMenu}>
+                //Contact
+              </Link>
             </li>
           </ul>
         </nav>

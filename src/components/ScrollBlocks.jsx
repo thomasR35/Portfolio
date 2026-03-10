@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "../styles/components/_scrollBlocks.scss";
+import "../styles/components/_blocks.scss";
 
 const blocks = [
   {
@@ -65,49 +65,47 @@ function Block({ block }) {
   const [ref, inView] = useInView();
 
   return (
-    <div
+    <li
       ref={ref}
-      className={`sb-block sb-block--${block.from} ${block.accent} ${inView ? "sb-block--visible" : ""}`}
+      className={`block block--${block.from} block--anim-${block.from} ${block.accent} ${inView ? "block--visible" : ""}`}
     >
-      {/* Icon side — 25% */}
-      <div className="sb-block__icon-side">
-        <span className="sb-block__icon">{block.icon}</span>
-        <div className="sb-block__divider" />
-        <span className="sb-block__tag">{block.tag}</span>
-      </div>
+      <aside className="block__side" aria-hidden="true">
+        <span className="block__icon">{block.icon}</span>
+        <div className="block__divider" />
+        <span className="block__tag">{block.tag}</span>
+      </aside>
 
-      {/* Text side — 75% */}
-      <div className="sb-block__text-side">
-        <h2 className="sb-block__title">{block.title}</h2>
-        <p className="sb-block__body">{block.text}</p>
-        <div className="sb-block__badge">
-          <span className="sb-block__dot" />
-          <span className="sb-block__badge-text">
+      <article className="block__content">
+        <h2 className="block__title">{block.title}</h2>
+        <p className="block__body">{block.text}</p>
+        <footer className="block__footer">
+          <span className="block__dot" aria-hidden="true" />
+          <span className="block__badge-text">
             disponible pour missions freelance
           </span>
-        </div>
-      </div>
-    </div>
+        </footer>
+      </article>
+    </li>
   );
 }
 
 export default function ScrollBlocks() {
   return (
-    <div className="sb-wrapper">
-      <div className="sb-hero">
-        <p className="sb-hero__label">Thomas Riou — Développeur Web</p>
-        <h1 className="sb-hero__title">
+    <main className="page-wrapper">
+      <section className="page-hero">
+        <p className="page-hero__label">Développeur Web</p>
+        <h1 className="page-hero__title">
           Je construis le web,
           <br />
-          <span className="sb-hero__title--muted">une ligne à la fois.</span>
+          <span className="page-hero__title--muted">une ligne à la fois.</span>
         </h1>
-      </div>
+      </section>
 
-      <div className="sb-blocks">
+      <ol className="blocks-list">
         {blocks.map((block) => (
           <Block key={block.id} block={block} />
         ))}
-      </div>
-    </div>
+      </ol>
+    </main>
   );
 }

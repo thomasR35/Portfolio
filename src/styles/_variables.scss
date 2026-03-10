@@ -1,54 +1,44 @@
-$primary-bg-color: #d6eae8;
-$secondary-bg-color: #f0f0f0;
-$text-color: #1e3851;
-$title-color: #1e3851;
-$text-hover: #1d3752;
-$font-family: "Poppins", sans-serif;
-// --- VARIABLES Projects ---------------------------------------------
+// ============================================================
+// _variables.scss — variables unifiées
+// ============================================================
 
-$pj-bg: #080808;
-$pj-block-bg: #f9f9f9;
-$pj-block-border: #1e1e1e;
-$pj-text-primary: #35618a;
-$pj-text-muted: #1e3851;
+// --- COULEURS GLOBALES -------------------------------------
+$primary-bg-color:    #d6eae8;
+$secondary-bg-color:  #f0f0f0;
+$text-color:          #1e3851;
+$title-color:         #1e3851;
+$text-hover:          #1d3752;
 
-$pj-font-display: "Poppins", sans-serif;
-$pj-font-mono: "Roboto Mono", monospace;
+// --- ACCENTS -----------------------------------------------
+$accent-green:        #00a87a;
+$accent-red:          #e03131;
+$accent-yellow:       #d48a00;
+$accent-purple:       #6741d9;
 
-$pj-block-max-width: 860px;
-$pj-img-side-width: 25%;
-$pj-img-side-min-width: 120px;
-$pj-block-radius: 16px;
-$pj-block-gap: 2.5rem;
-// -----------------------------------------------------------
+// --- BLOCS -------------------------------------------------
+$block-bg:            #f9f9f9;
+$block-border:        #e0e0e0;
+$block-radius:        16px;
+$block-gap:           2.5rem;
+$block-max-width:     860px;
+$block-shadow:        0 0 40px rgba(0, 0, 0, 0.06);
 
-// --- VARIABLES ScrollBlocks -------------------------------------------
-$sb-accent-green: #00a87a;
-$sb-accent-red: #e03131;
-$sb-accent-yellow: #d48a00;
-$sb-accent-purple: #6741d9;
+// --- CÔTÉ ICÔNE / IMAGE ------------------------------------
+$block-side-width:    25%;
+$block-side-min-width: 120px;
 
-// Fond & textes
-$sb-bg: #f9f9f9d8;
-$sb-block-bg: #f9f9f9;
-$sb-block-border: #1e1e1e;
-$sb-text-primary: #35618a;
-$sb-text-muted: #1e3851;
+// --- TEXTES BLOCS ------------------------------------------
+$block-text-primary:  #35618a;
+$block-text-muted:    #1e3851;
 
-// Typographie
-$sb-font-display: "Poppins", sans-serif;
-$sb-font-mono: "Roboto Mono", monospace;
+// --- FOND PAGES --------------------------------------------
+$page-bg:             #f9f9f9;
 
-// Dimensions
-$sb-block-max-width: 860px;
-$sb-icon-side-width: 25%;
-$sb-icon-side-min-width: 120px;
-$sb-block-radius: 16px;
-$sb-block-gap: 2.5rem;
+// --- TYPOGRAPHIE -------------------------------------------
+$font-family:         "Poppins", sans-serif;
+$font-mono:           "Roboto Mono", monospace;
 
-// Animation
-$sb-transition-duration: 0.7s;
-$sb-transition-easing: cubic-bezier(0.22, 1, 0.36, 1);
-$sb-slide-distance: 120px;
-
-// -----------------------------------------------------------
+// --- ANIMATIONS --------------------------------------------
+$transition-duration: 0.7s;
+$transition-easing:   cubic-bezier(0.22, 1, 0.36, 1);
+$slide-distance:      120px;

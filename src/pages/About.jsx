@@ -41,39 +41,37 @@ const aboutBlocks = [
 
 export default function About() {
   return (
-    <main className="ab-wrapper">
-      <section className="ab-hero">
-        <p className="ab-hero__label">À propos</p>
-        <h1 className="ab-hero__title">
+    <main className="page-wrapper">
+      <section className="page-hero">
+        <p className="page-hero__label">À propos</p>
+        <h1 className="page-hero__title">
           Développeur web,
           <br />
-          <span className="ab-hero__title--muted">
+          <span className="page-hero__title--muted">
             en constante progression.
           </span>
         </h1>
       </section>
 
       <section aria-label="À propos de moi">
-        <ol className="ab-blocks">
+        <ol className="blocks-list">
           {aboutBlocks.map((block) => (
             <li
               key={block.id}
-              className={`ab-block ab-block--${block.from} ${block.accent}`}
+              className={`block block--${block.from} ${block.accent}`}
             >
-              {/* Icon side — 25% */}
-              <aside className="ab-block__icon-side" aria-hidden="true">
-                <span className="ab-block__icon">{block.icon}</span>
-                <div className="ab-block__divider" />
-                <span className="ab-block__tag">{block.tag}</span>
+              <aside className="block__side" aria-hidden="true">
+                <span className="block__icon">{block.icon}</span>
+                <div className="block__divider" />
+                <span className="block__tag">{block.tag}</span>
               </aside>
 
-              {/* Text side — 75% */}
-              <article className="ab-block__text-side">
-                <h2 className="ab-block__title">{block.title}</h2>
-                <p className="ab-block__body">{block.body}</p>
-                <footer className="ab-block__footer">
-                  <span className="ab-block__dot" aria-hidden="true" />
-                  <span className="ab-block__badge-text">{block.tag}</span>
+              <article className="block__content">
+                <h2 className="block__title">{block.title}</h2>
+                <p className="block__body">{block.body}</p>
+                <footer className="block__footer">
+                  <span className="block__dot" aria-hidden="true" />
+                  <span className="block__badge-text">{block.tag}</span>
                 </footer>
               </article>
             </li>

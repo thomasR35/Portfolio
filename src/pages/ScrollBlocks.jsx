@@ -10,7 +10,7 @@ export default function ScrollBlocks() {
   return (
     <main className="page-wrapper">
       <section className="page-hero">
-        <p className="page-hero__label">Développeur Web</p>
+        <p className="page-hero__label">Thomas Riou - Développeur Web</p>
         <h1 className="page-hero__title">
           Je construis le web,
           <br />

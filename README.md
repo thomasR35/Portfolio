@@ -28,13 +28,33 @@ Site portfolio single-page avec animations au scroll, design en blocs cohérents
 
 ```
 src/
-├── assets/          # Logo et images statiques
-├── components/      # Header, Footer, ScrollBlocks
-├── pages/           # Home, About, Projects, Contact, ProjectDetails
+├── assets/                  # Logo et images statiques
+├── components/              # Composants réutilisables
+│   ├── AnimatedBlock.jsx    # Bloc animé au scroll
+│   ├── ContactForm.jsx      # Formulaire de contact isolé
+│   ├── Header.jsx
+│   └── Footer.jsx
+├── data/                    # Données métier séparées du JSX
+│   ├── homeData.js
+│   ├── aboutData.js
+│   ├── projectsData.js
+│   ├── projectDetailsData.js
+│   └── contactConfig.js
+├── hooks/                   # Hooks personnalisés
+│   ├── useInView.js         # Détection scroll (IntersectionObserver)
+│   ├── useContactForm.js    # Logique formulaire + EmailJS
+│   └── useProjectDetails.js
+├── pages/                   # Pages de l'application
+│   ├── Home.jsx
+│   ├── About.jsx
+│   ├── Projects.jsx
+│   ├── ProjectDetails.jsx
+│   └── Contact.jsx
 └── styles/
-    ├── components/  # _header.scss, _footer.scss, _scrollBlocks.scss
-    ├── pages/       # _home.scss, _about.scss, _projects.scss, _contact.scss
-    ├── _variables.scss
+    ├── components/          # _header.scss, _footer.scss, _blocks.scss
+    ├── pages/               # _home.scss, _about.scss, _projects.scss
+    │                        # _contact.scss, _projectDetails.scss
+    ├── _variables.scss      # Variables unifiées
     ├── _mixins.scss
     ├── _base.scss
     └── main.scss
@@ -89,4 +109,4 @@ Thomas Riou — [thomasriou.35@gmail.com](mailto:thomasriou.35@gmail.com)
 
 ---
 
-Fait avec ☕ en Bretagne\_
+Fait avec ☕ à Saint-Briac-sur-Mer en 2026.

@@ -5,6 +5,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import Footer from "./components/Footer";
 import "./styles/main.scss";
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+        <ScrollToTopButton />
         <Footer />
       </div>
     </Router>

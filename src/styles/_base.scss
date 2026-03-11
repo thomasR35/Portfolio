@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  transition: var(--transition-theme);
+}
+
 html,
 body {
   margin: 0;

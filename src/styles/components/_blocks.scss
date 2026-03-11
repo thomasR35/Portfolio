@@ -7,7 +7,7 @@
 // --- WRAPPER PAGE ------------------------------------------
 .page-wrapper {
   min-height: 100vh;
-  background: $page-bg;
+  background: var(--page-bg);
   padding: 6rem 1.5rem;
 }
 
@@ -28,7 +28,7 @@
   &__title {
     margin: 0;
     font-size: clamp(2rem, 6vw, 3.5rem);
-    color: $block-text-primary;
+    color: var(--block-text-primary);
     font-family: $font-family;
     font-weight: 700;
     letter-spacing: -0.03em;
@@ -69,8 +69,8 @@
 .block {
   display: flex;
   align-items: stretch;
-  background: $block-bg;
-  border: 1px solid $block-border;
+  background: var(--block-bg);
+  border: 1px solid var(--block-border);
   border-radius: $block-radius;
   overflow: hidden;
   min-height: 200px;
@@ -228,7 +228,7 @@
 .block__body {
   margin: 0;
   font-size: 0.95rem;
-  color: $block-text-muted;
+  color: var(--block-text-muted);
   line-height: 1.75;
   font-family: $font-mono;
 }

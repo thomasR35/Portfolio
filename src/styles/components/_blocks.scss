@@ -2,7 +2,7 @@
 // _blocks.scss — composant bloc générique
 // Utilisé par toutes les pages : Home, About, Projects, Contact
 // ============================================================
-@import "../variables";
+@use "../_variables" as *;
 
 // --- WRAPPER PAGE ------------------------------------------
 .page-wrapper {

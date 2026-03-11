@@ -1,4 +1,4 @@
-@import "../variables";
+@use "../_variables" as *;
 
 header {
   width: 100%;
@@ -22,7 +22,10 @@ header {
     align-items: center;
     flex-shrink: 0;
 
-    img { width: 200px; height: auto; }
+    img {
+      width: 200px;
+      height: auto;
+    }
   }
 
   // --- NAV ---
@@ -39,7 +42,9 @@ header {
       gap: 2rem;
     }
 
-    li { padding: 0; }
+    li {
+      padding: 0;
+    }
 
     a {
       font-size: 1rem;
@@ -66,10 +71,10 @@ header {
   }
 
   // --- TOGGLE APPLE STYLE ---
-  $toggle-width:  48px;
+  $toggle-width: 48px;
   $toggle-height: 26px;
-  $thumb-size:    20px;
-  $thumb-gap:     3px;
+  $thumb-size: 20px;
+  $thumb-gap: 3px;
 
   .theme-toggle {
     display: flex;
@@ -82,7 +87,9 @@ header {
     padding: 0;
     flex-shrink: 0;
 
-    &:focus { outline: none; }
+    &:focus {
+      outline: none;
+    }
 
     // --- Track ---
     &__track {
@@ -159,7 +166,9 @@ header {
     padding: 0;
     flex-shrink: 0;
 
-    &:focus { outline: none; }
+    &:focus {
+      outline: none;
+    }
 
     .line {
       width: 100%;
@@ -169,16 +178,24 @@ header {
       transition: all 0.3s ease;
     }
 
-    &.active .line:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    &.active .line:nth-child(2) { opacity: 0; }
-    &.active .line:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    &.active .line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    &.active .line:nth-child(2) {
+      opacity: 0;
+    }
+    &.active .line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
   }
 
   // --- TABLETTE & MOBILE ---
   @media (max-width: 1124px) {
     position: relative;
 
-    .container { padding: 1rem 1.5rem; }
+    .container {
+      padding: 1rem 1.5rem;
+    }
 
     .nav {
       display: none;
@@ -204,10 +221,14 @@ header {
           border-bottom: 1px solid var(--block-border);
         }
 
-        a { font-size: 1.1rem; }
+        a {
+          font-size: 1.1rem;
+        }
       }
     }
 
-    .burger { display: flex; }
+    .burger {
+      display: flex;
+    }
   }
 }

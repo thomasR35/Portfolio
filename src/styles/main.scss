@@ -1,18 +1,18 @@
-@import "./_variables.scss";
-@import "./_mixins";
-@import "./_base";
-@import "./components/_header";
-@import "./components/_footer";
-@import "./components/_blocks";
-@import "./pages/_home";
-@import "./pages/_about";
-@import "./pages/_projects";
-@import "./pages/_contact";
-@import "./pages/_projectDetails";
+@use "./_variables" as *;
+@use "./_mixins" as *;
+@use "./_base";
+@use "./components/_header";
+@use "./components/_footer";
+@use "./components/_blocks";
+@use "./pages/_home";
+@use "./pages/_about";
+@use "./pages/_projects";
+@use "./pages/_contact";
+@use "./pages/_projectDetails";
 
 .App {
   font-family: $font-family;
-  background-color: $secondary-bg-color;
+  background-color: $page-bg;
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;

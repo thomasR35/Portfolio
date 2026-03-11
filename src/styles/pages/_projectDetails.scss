@@ -1,4 +1,5 @@
-@import "../variables";
+@use "../_variables" as *;
+@use "../_mixins" as *;
 
 .project-details {
   max-width: 800px;

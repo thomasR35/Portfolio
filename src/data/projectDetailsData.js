@@ -5,6 +5,7 @@
 export const projects = {
   shortly: {
     title: "Shortly",
+    tags: ["HTML", "CSS", "JavaScript"],
     images: [
       "/images/shortly/shortly1.png",
       "/images/shortly/shortly2.png",
@@ -13,6 +14,7 @@ export const projects = {
   },
   ferme: {
     title: "La ferme des possibles",
+    tags: ["HTML", "JavaScript", "SCSS"],
     images: [
       "/images/ferme/ferme1.png",
       "/images/ferme/ferme2.png",
@@ -27,6 +29,7 @@ export const projects = {
   },
   league: {
     title: "League",
+    tags: ["PHP", "MySQL", "Sass", "MVC", "POO"],
     images: [
       "/images/league/league1.png",
       "/images/league/league2.png",

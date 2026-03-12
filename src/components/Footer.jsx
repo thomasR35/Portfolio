@@ -8,6 +8,9 @@ function Footer() {
         <p>
           &copy; {new Date().getFullYear()} - Thomas Riou. Tous droits réservés.
         </p>
+        <p className="footer__location">
+          Développeur web freelance — Saint-Briac-sur-Mer · Saint-Malo · Dinard · Dinan · Bretagne
+        </p>
         <ul className="footer-links">
           <li>
             <a

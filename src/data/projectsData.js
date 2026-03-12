@@ -39,4 +39,16 @@ export const projectsBlocks = [
     projectId: "league",
     from: "left",
   },
+  {
+    id: "metm",
+    title: "Marcelle & Maurice Shop",
+    tag: "E-commerce",
+    icon: "🛍️",
+    accent: "accent-purple",
+    description:
+      "Site e-commerce de personnalisation et vente d'objets (mugs, t-shirts, pins) avec interface de customisation en temps réel, galerie d'images, panier et paiement Stripe.",
+    imageUrl: "/images/metm/metm1.png",
+    from: "right",
+    projectId: "metm",
+  },
 ];

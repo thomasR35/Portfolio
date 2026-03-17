@@ -2,10 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://westdev.fr/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <loc>https://westdev.fr/</loc>
+  <lastmod>2026-03-17</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.0</priority>
+</url>
 
   <url>
     <loc>https://westdev.fr/about</loc>
@@ -36,6 +37,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+
+<url>
+  <loc>https://westdev.fr/projects/metm</loc>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+</url>
 
   <url>
     <loc>https://westdev.fr/contact</loc>

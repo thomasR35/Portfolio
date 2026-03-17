@@ -6,40 +6,78 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   questions,
+  proQuestions,
+  getQ2Options,
   getRecommendation,
   buildMessage,
 } from "../data/servicesData";
 import "../styles/pages/_services.scss";
 
 export default function Services() {
-  const [step, setStep] = useState(0); // 0 = intro, 1-5 = questions, 6 = résumé
+  const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [proAnswers, setProAnswers] = useState({});
   const [freeInputs, setFreeInputs] = useState({});
   const [copied, setCopied] = useState(false);
 
-  const currentQuestion = questions[step - 1];
-  const totalSteps = questions.length;
-  const isIntro = step === 0;
-  const isSummary = step === totalSteps + 1;
+  const isPro = answers[1]?.id === "pro_web";
 
-  function handleSelect(questionId, option) {
-    setAnswers((prev) => ({
-      ...prev,
-      [questionId]: {
-        id: option.id,
-        label: option.freeInput ? freeInputs[questionId] || "" : option.label,
-        text: freeInputs[questionId] || "",
-      },
-    }));
+  // Construire la liste des étapes dynamiquement
+  function buildSteps() {
+    const steps = [];
+    questions.forEach((q) => {
+      if (q.skipFor && isPro && q.skipFor.includes("pro_web")) return;
+      steps.push({ type: "standard", question: q });
+    });
+    if (isPro) {
+      proQuestions.forEach((q) => steps.push({ type: "pro", question: q }));
+    }
+    return steps;
   }
 
-  function handleFreeInput(questionId, value) {
-    setFreeInputs((prev) => ({ ...prev, [questionId]: value }));
-    if (answers[questionId]?.id === "autre") {
-      setAnswers((prev) => ({
-        ...prev,
-        [questionId]: { id: "autre", label: value, text: value },
-      }));
+  const steps = buildSteps();
+  const totalSteps = steps.length;
+  const isIntro = step === 0;
+  const isSummary = step === totalSteps + 1;
+  const currentStepData = steps[step - 1];
+
+  function getOptions(question) {
+    if (question.id === 2) return getQ2Options(answers[1]?.id);
+    return question.options;
+  }
+
+  function getCurrentAnswer() {
+    if (!currentStepData) return null;
+    if (currentStepData.type === "pro") {
+      return proAnswers[currentStepData.question.id];
+    }
+    return answers[currentStepData.question.id];
+  }
+
+  function handleSelect(question, option, type) {
+    const value = {
+      id: option.id,
+      label: option.freeInput ? freeInputs[question.id] || "" : option.label,
+      text: freeInputs[question.id] || "",
+    };
+    if (type === "pro") {
+      setProAnswers((prev) => ({ ...prev, [question.id]: value }));
+    } else {
+      setAnswers((prev) => ({ ...prev, [question.id]: value }));
+    }
+  }
+
+  function handleFreeInput(question, value, type) {
+    setFreeInputs((prev) => ({ ...prev, [question.id]: value }));
+    const current =
+      type === "pro" ? proAnswers[question.id] : answers[question.id];
+    if (current?.id === "autre") {
+      const updated = { id: "autre", label: value, text: value };
+      if (type === "pro") {
+        setProAnswers((prev) => ({ ...prev, [question.id]: updated }));
+      } else {
+        setAnswers((prev) => ({ ...prev, [question.id]: updated }));
+      }
     }
   }
 
@@ -58,15 +96,25 @@ export default function Services() {
     });
   }
 
-  const recommendation = isSummary ? getRecommendation(answers) : null;
-  const message = isSummary ? buildMessage(answers, recommendation) : null;
+  function handleRestart() {
+    setStep(0);
+    setAnswers({});
+    setProAnswers({});
+    setFreeInputs({});
+    setCopied(false);
+  }
 
-  const currentAnswer = currentQuestion ? answers[currentQuestion.id] : null;
+  const recommendation = isSummary
+    ? getRecommendation(answers, proAnswers)
+    : null;
+  const message = isSummary
+    ? buildMessage(answers, proAnswers, recommendation)
+    : null;
+  const currentAnswer = getCurrentAnswer();
   const canNext = currentAnswer?.id;
 
   return (
     <div className="page-wrapper">
-      {/* Hero */}
       <section className="page-hero">
         <p className="page-hero__label">Trouver ma formule</p>
         <h1 className="page-hero__title">
@@ -76,7 +124,6 @@ export default function Services() {
         </h1>
       </section>
 
-      {/* Card principale */}
       <div className="quiz">
         {/* Barre de progression */}
         {!isIntro && !isSummary && (
@@ -93,12 +140,12 @@ export default function Services() {
           <div className="quiz__intro">
             <span className="quiz__intro-icon">🧭</span>
             <h2 className="quiz__intro-title">
-              5 questions pour trouver la formule idéale
+              Quelques questions pour trouver la formule idéale
             </h2>
             <p className="quiz__intro-text">
-              Répondez à quelques questions simples — je vous propose ensuite le
-              package qui correspond le mieux à votre projet, avec un message
-              prêt à envoyer.
+              Particulier, artisan, professionnel du web — répondez à quelques
+              questions simples. Je vous propose ensuite la formule qui
+              correspond à votre projet, avec un message prêt à envoyer.
             </p>
             <button
               className="quiz__btn quiz__btn--primary"
@@ -110,15 +157,20 @@ export default function Services() {
         )}
 
         {/* QUESTIONS */}
-        {!isIntro && !isSummary && currentQuestion && (
+        {!isIntro && !isSummary && currentStepData && (
           <div className="quiz__step">
             <p className="quiz__counter">
               Question {step} / {totalSteps}
+              {isPro && currentStepData.type === "pro" && (
+                <span className="quiz__counter-badge">Profil technique</span>
+              )}
             </p>
-            <h2 className="quiz__question">{currentQuestion.question}</h2>
+            <h2 className="quiz__question">
+              {currentStepData.question.question}
+            </h2>
 
             <ul className="quiz__options">
-              {currentQuestion.options.map((option) => (
+              {getOptions(currentStepData.question).map((option) => (
                 <li key={option.id}>
                   <button
                     className={`quiz__option ${
@@ -126,7 +178,13 @@ export default function Services() {
                         ? "quiz__option--selected"
                         : ""
                     }`}
-                    onClick={() => handleSelect(currentQuestion.id, option)}
+                    onClick={() =>
+                      handleSelect(
+                        currentStepData.question,
+                        option,
+                        currentStepData.type,
+                      )
+                    }
                   >
                     {option.label}
                   </button>
@@ -135,9 +193,14 @@ export default function Services() {
                       className="quiz__free-input"
                       type="text"
                       placeholder="Précisez..."
-                      value={freeInputs[currentQuestion.id] || ""}
+                      maxLength={150}
+                      value={freeInputs[currentStepData.question.id] || ""}
                       onChange={(e) =>
-                        handleFreeInput(currentQuestion.id, e.target.value)
+                        handleFreeInput(
+                          currentStepData.question,
+                          e.target.value,
+                          currentStepData.type,
+                        )
                       }
                       autoFocus
                     />
@@ -173,19 +236,30 @@ export default function Services() {
 
             {/* Récap réponses */}
             <ul className="quiz__recap">
-              {questions.map((q) => (
-                <li key={q.id} className="quiz__recap-item">
-                  <span className="quiz__recap-label">{q.question}</span>
-                  <span className="quiz__recap-value">
-                    {answers[q.id]?.label || "—"}
-                  </span>
-                </li>
-              ))}
+              {steps.map(({ question, type }) => {
+                const ans =
+                  type === "pro"
+                    ? proAnswers[question.id]
+                    : answers[question.id];
+                if (!ans) return null;
+                return (
+                  <li key={question.id} className="quiz__recap-item">
+                    <span className="quiz__recap-label">
+                      {question.question}
+                    </span>
+                    <span className="quiz__recap-value">
+                      {ans.label || "—"}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
 
             {/* Package recommandé */}
             <div className="quiz__recommendation">
-              <p className="quiz__recommendation-label">Formule recommandée</p>
+              <p className="quiz__recommendation-label">
+                {recommendation.isPro ? "Proposition" : "Formule recommandée"}
+              </p>
               <div className="quiz__recommendation-card">
                 <span className="quiz__recommendation-icon">
                   {recommendation.package_rec.icon}
@@ -238,14 +312,7 @@ export default function Services() {
               </div>
             </div>
 
-            <button
-              className="quiz__restart"
-              onClick={() => {
-                setStep(0);
-                setAnswers({});
-                setFreeInputs({});
-              }}
-            >
+            <button className="quiz__restart" onClick={handleRestart}>
               ↺ Recommencer
             </button>
           </div>

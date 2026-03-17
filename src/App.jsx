@@ -7,12 +7,14 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Header from "./components/Header";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 import "./styles/main.scss";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Header />
         <main>

@@ -9,7 +9,7 @@ export const aboutBlocks = [
     icon: "👨‍💻",
     tag: "Qui suis-je ?",
     accent: "accent-green",
-    title: "Thomas Riou, développeur web junior",
+    title: "Thomas Riou, développeur web fullstack",
     body: "Diplômé de la formation Frontend de la 3W Academy, j'ai également acquis des bases solides en développement Backend au cours de ma formation. Passionné par la technologie, je cherche aujourd'hui à mettre en pratique mes compétences et à continuer de progresser sur des projets concrets.",
   },
   {
@@ -38,5 +38,14 @@ export const aboutBlocks = [
     accent: "accent-yellow",
     title: "Du code propre, versionné et déployé",
     body: "GitHub, Vite, Sass — je maîtrise les outils du développeur moderne, du premier commit jusqu'à la mise en production.",
+  },
+  {
+    id: "learning",
+    from: "left",
+    icon: "📚",
+    tag: "Formation continue",
+    accent: "accent-green",
+    title: "Toujours en mouvement",
+    body: "Le web évolue vite — j'évolue avec lui. Actuellement en formation sur Next.js et TypeScript pour proposer des sites encore plus performants, mieux référencés et maintenables sur le long terme.",
   },
 ];

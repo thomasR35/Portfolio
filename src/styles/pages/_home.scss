@@ -6,6 +6,72 @@
 @use "../_mixins" as *;
 
 // ============================================================
+// BANDEAU CEINTURE
+// ============================================================
+
+.home-banner {
+  background: var(--primary-bg);
+  padding: 2.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 4rem 0 0;
+
+  @include respond-to("mobile") {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &__text {
+    font-family: $font-family;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  &__sub {
+    font-family: $font-mono;
+    font-size: 0.95rem;
+    color: var(--block-text-muted);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  &__cta {
+    flex-shrink: 0;
+    padding: 0.8rem 1.75rem;
+    background: var(--text-color);
+    color: var(--primary-bg);
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include respond-to("mobile") {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+  }
+}
+
+// ============================================================
 // SECTION PACKAGES
 // ============================================================
 

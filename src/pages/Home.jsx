@@ -32,6 +32,20 @@ export default function Home() {
         ))}
       </ol>
 
+      {/* Bandeau ceinture */}
+      <div className="home-banner">
+        <div className="home-banner__content">
+          <p className="home-banner__text">Pas encore décidé ?</p>
+          <p className="home-banner__sub">
+            Répondez à quelques questions — je vous propose la formule qui vous
+            correspond.
+          </p>
+        </div>
+        <Link to="/services" className="home-banner__cta">
+          Trouver ma formule →
+        </Link>
+      </div>
+
       {/* Section packages */}
       <section className="packages">
         <p className="packages__label">Mes offres</p>

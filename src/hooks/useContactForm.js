@@ -11,10 +11,24 @@ import {
   isValidEmail,
 } from "../data/contactConfig";
 
-const INITIAL_FORM = { name: "", email: "", message: "" };
+// ============================================================
+// SANITISATION
+// ============================================================
+function sanitize(str = "") {
+  return str
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
 
-export function useContactForm() {
-  const [formData, setFormData] = useState(INITIAL_FORM);
+export function useContactForm(prefillMessage = "") {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: prefillMessage,
+    honeypot: "",
+  });
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -30,6 +44,9 @@ export function useContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Honeypot — si rempli c'est un bot
+    if (formData.honeypot) return;
+
     if (!isValidEmail(formData.email)) {
       setStatus("error");
       setErrorMessage("L'adresse email n'est pas valide.");
@@ -44,14 +61,14 @@ export function useContactForm() {
         SERVICE_ID,
         TEMPLATE_ID,
         {
-          name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+          name: sanitize(formData.name),
+          from_email: sanitize(formData.email),
+          message: sanitize(formData.message),
         },
         PUBLIC_KEY,
       );
       setStatus("success");
-      setFormData(INITIAL_FORM);
+      setFormData({ name: "", email: "", message: "", honeypot: "" });
     } catch (err) {
       console.error("EmailJS error:", err);
       setStatus("error");

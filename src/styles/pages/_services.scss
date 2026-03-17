@@ -1,0 +1,398 @@
+// ============================================================
+// _services.scss
+// ============================================================
+
+@use "../_variables" as *;
+@use "../_mixins" as *;
+
+// ============================================================
+// QUIZ CONTAINER
+// ============================================================
+
+.quiz {
+  max-width: $block-max-width;
+  margin: 0 auto;
+  background: var(--block-bg);
+  border: 1px solid var(--block-border);
+  border-radius: $block-radius;
+  overflow: hidden;
+  box-shadow: var(--block-shadow);
+
+  // --- Barre de progression ---
+  &__progress {
+    height: 4px;
+    background: var(--block-border);
+    width: 100%;
+  }
+
+  &__progress-bar {
+    height: 100%;
+    background: $accent-green;
+    border-radius: 2px;
+    transition: width 0.4s $transition-easing;
+  }
+
+  // --- Intro ---
+  &__intro {
+    padding: 3rem 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  &__intro-icon {
+    font-size: 3rem;
+  }
+
+  &__intro-title {
+    font-family: $font-family;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  &__intro-text {
+    font-family: $font-mono;
+    font-size: 0.95rem;
+    color: var(--block-text-muted);
+    line-height: 1.75;
+    max-width: 500px;
+  }
+
+  // --- Step ---
+  &__step {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__counter {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--block-text-muted);
+  }
+
+  &__question {
+    font-family: $font-family;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  // --- Options ---
+  &__options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__option {
+    width: 100%;
+    text-align: left;
+    padding: 0.9rem 1.25rem;
+    background: var(--page-bg);
+    border: 1px solid var(--block-border);
+    border-radius: 10px;
+    font-family: $font-mono;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      border-color: var(--block-text-primary);
+    }
+
+    &--selected {
+      border-color: $accent-green;
+      background: color-mix(in srgb, #{$accent-green} 8%, transparent);
+      color: var(--text-color);
+    }
+  }
+
+  &__free-input {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--page-bg);
+    border: 1px solid var(--block-border);
+    border-radius: 8px;
+    font-family: $font-mono;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: var(--block-text-primary);
+    }
+  }
+
+  // --- Navigation ---
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  // --- Boutons ---
+  &__btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition:
+      opacity 0.2s ease,
+      background 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+
+    &--primary {
+      background: var(--text-color);
+      color: var(--page-bg);
+      border: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--block-border);
+
+      &:hover {
+        border-color: var(--block-text-primary);
+      }
+    }
+
+    &--disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  // --- Résumé ---
+  &__summary {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__summary-title {
+    font-family: $font-family;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  // --- Récap ---
+  &__recap {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--block-border);
+    border-radius: $block-radius;
+    overflow: hidden;
+  }
+
+  &__recap-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--block-border);
+    gap: 1rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @include respond-to("mobile") {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__recap-label {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: var(--block-text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  &__recap-value {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: right;
+  }
+
+  // --- Recommendation ---
+  &__recommendation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__recommendation-label {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--block-text-muted);
+  }
+
+  &__recommendation-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: color-mix(in srgb, #{$accent-green} 6%, transparent);
+    border: 1px solid color-mix(in srgb, #{$accent-green} 30%, transparent);
+    border-radius: $block-radius;
+  }
+
+  &__recommendation-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  &__recommendation-name {
+    font-family: $font-family;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 0.4rem;
+  }
+
+  &__recommendation-description {
+    font-family: $font-mono;
+    font-size: 0.9rem;
+    color: var(--block-text-muted);
+    line-height: 1.75;
+    margin: 0 0 0.5rem;
+  }
+
+  &__recommendation-price {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: $accent-green;
+  }
+
+  &__recommendation-note {
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    color: var(--block-text-muted);
+    padding: 0.75rem 1rem;
+    background: var(--page-bg);
+    border-radius: 8px;
+    border: 1px solid var(--block-border);
+  }
+
+  // --- Message ---
+  &__message {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__message-label {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--block-text-muted);
+  }
+
+  &__message-text {
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--page-bg);
+    border: 1px solid var(--block-border);
+    border-radius: $block-radius;
+    font-family: $font-mono;
+    font-size: 0.88rem;
+    color: var(--text-color);
+    line-height: 1.75;
+    resize: none;
+    outline: none;
+  }
+
+  &__message-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  // --- Restart ---
+  &__restart {
+    align-self: center;
+    background: transparent;
+    border: none;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: var(--block-text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--text-color);
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE
+// ============================================================
+
+@include respond-to("mobile") {
+  .quiz {
+    &__step,
+    &__summary,
+    &__intro {
+      padding: 1.5rem;
+    }
+
+    &__nav {
+      flex-direction: column-reverse;
+    }
+
+    &__btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__message-actions {
+      flex-direction: column;
+    }
+  }
+}

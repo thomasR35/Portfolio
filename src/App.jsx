@@ -4,6 +4,7 @@ import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Services from "./pages/Services";
 import Header from "./components/Header";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Footer from "./components/Footer";
@@ -21,6 +22,7 @@ function App() {
             <Route path="/projects/:projectId" element={<ProjectDetails />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/services" element={<Services />} />
           </Routes>
         </main>
         <ScrollToTopButton />

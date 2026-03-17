@@ -3,10 +3,14 @@
 // ============================================================
 
 import "../styles/pages/_contact.scss";
+import { useLocation } from "react-router-dom";
 import ContactForm from "../components/ContactForm";
 import { socialLinks } from "../data/contactConfig";
 
 export default function Contact() {
+  const location = useLocation();
+  const prefillMessage = location.state?.message || "";
+
   return (
     <main className="page-wrapper">
       <section className="page-hero">
@@ -57,7 +61,7 @@ export default function Contact() {
           </aside>
           <article className="block__content">
             <h2 className="block__title">Envoyez-moi un message</h2>
-            <ContactForm />
+            <ContactForm prefillMessage={prefillMessage} />
           </article>
         </div>
       </div>

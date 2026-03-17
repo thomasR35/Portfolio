@@ -17,10 +17,10 @@
 
   &__label {
     font-family: $font-mono;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 2rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--block-text-muted);
+    color: $accent-green;
     margin-bottom: 0.75rem;
   }
 

@@ -11,14 +11,17 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <main className="page-wrapper">
-
       {/* Hero */}
       <section className="page-hero">
-        <p className="page-hero__label">Thomas Riou — Développeur Web Freelance</p>
+        <p className="page-hero__label">
+          Thomas Riou — Développeur Web Freelance
+        </p>
         <h1 className="page-hero__title">
           Un site web professionnel,
           <br />
-          <span className="page-hero__title--muted">simple, rapide et abordable.</span>
+          <span className="page-hero__title--muted">
+            simple, rapide et abordable.
+          </span>
         </h1>
       </section>
 
@@ -34,7 +37,8 @@ export default function Home() {
         <p className="packages__label">Mes offres</p>
         <h2 className="packages__title">Choisissez votre formule</h2>
         <p className="packages__subtitle">
-          Des sites clés en main pour artisans, commerçants et prestataires de services.
+          Des sites clés en main pour artisans, commerçants et prestataires de
+          services.
         </p>
 
         <div className="packages__grid">
@@ -73,7 +77,9 @@ export default function Home() {
           <span className="maintenance__icon">{homeMaintenance.icon}</span>
           <div className="maintenance__content">
             <h4 className="maintenance__title">{homeMaintenance.title}</h4>
-            <p className="maintenance__description">{homeMaintenance.description}</p>
+            <p className="maintenance__description">
+              {homeMaintenance.description}
+            </p>
           </div>
           <p className="maintenance__price">{homeMaintenance.price}</p>
         </div>
@@ -85,7 +91,6 @@ export default function Home() {
           </Link>
         </p>
       </section>
-
     </main>
   );
 }
